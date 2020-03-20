@@ -4,9 +4,7 @@
         focusComponent="materiasTable"
         messagesPack="com.company.prueba1.web.screens.materia">
     <data readOnly="true">
-        <collection id="materiasDc"
-                    class="com.company.prueba1.entity.Materia"
-                    view="_local">
+        <collection id="materiasDc" class="com.company.prueba1.entity.Materia" view="_local">
             <loader id="materiasDl">
                 <query>
                     <![CDATA[select e from prueba1_Materia e]]>

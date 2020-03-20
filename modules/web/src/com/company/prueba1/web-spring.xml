@@ -13,6 +13,8 @@
             <map>
                 <entry key="prueba1_MateriasEstudianteService"
                        value="com.company.prueba1.service.MateriasEstudianteService"/>
+                <entry key="prueba1_ObtenerEstudianteService"
+                       value="com.company.prueba1.service.ObtenerEstudianteService"/>
             </map>
         </property>
     </bean>

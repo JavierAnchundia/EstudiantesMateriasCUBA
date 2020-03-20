@@ -17,6 +17,7 @@ import javax.inject.Inject;
 @LoadDataBeforeShow
 public class EstudianteBrowse extends StandardLookup<Estudiante> {
 
+
     @Inject
     private ScreenBuilders screenBuilders;
     @Inject

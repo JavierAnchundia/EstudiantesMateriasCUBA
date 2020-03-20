@@ -28,7 +28,7 @@ create table PRUEBA1_MATERIA (
     --
     NOMBRE varchar(255) not null,
     CODIGO varchar(255) not null,
-    ESTUDIANTE_ID varchar(36),
+    ESTUDIANTE_ID varchar(36) not null,
     --
     primary key (ID)
 )^

@@ -6,9 +6,16 @@
     <data>
         <instance id="materiaDc"
                   class="com.company.prueba1.entity.Materia"
-                  view="_local">
+                  view="materia-edit-view">
             <loader/>
         </instance>
+        <collection id="estudianteDc" class="com.company.prueba1.entity.Estudiante" view="_local">
+            <loader id="estudianteLc">
+                <query>
+                    <![CDATA[select e from prueba1_Estudiante e]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <dialogMode height="600"
                 width="800"/>
@@ -17,6 +24,9 @@
             <column width="250px">
                 <textField id="nombreField" property="nombre"/>
                 <textField id="codigoField" property="codigo"/>
+                <lookupPickerField id="estudianteField" optionsContainer="estudianteDc"
+                                   property="estudiante" />
+
             </column>
         </form>
         <hbox id="editActions" spacing="true">

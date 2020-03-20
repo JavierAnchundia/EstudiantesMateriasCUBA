@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://caption"
+        focusComponent="materiasTable"
         messagesPack="com.company.prueba1.web.screens">
-    <data>
-        <collection id="materiasDc" class="com.company.prueba1.entity.Materia"  view="_local">
+    <data >
+        <collection id="materiasDc" class="com.company.prueba1.entity.Materia" view="_local">
             <loader id="materiasDl">
                 <query>
                     <![CDATA[select e from prueba1_Materia e ]]>
                 </query>
             </loader>
         </collection>
+        <instance id="emateriaDc"
+                  class="com.company.prueba1.entity.Materia"
+                  view="_local">
+            <loader/>
+        </instance>
+        <collection id="estudiantesDc"
+                    class="com.company.prueba1.entity.Estudiante"
+                    view="_local">
+            <loader id="estudiantesDl">
+                <query>
+                    <![CDATA[select e from prueba1_Estudiante e]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <layout>
-        <vbox spacing="true" margin="8 px">
-            <groupTable id="estudiantesTable"
-                    width="100%"
-                    dataContainer="materiasDc"
-                    align="MIDDLE_LEFT"
 
-            >
+
+        <vbox spacing="true" margin="8 px">
+            <groupTable id="materiasTable"
+                    width="100%"
+                    dataContainer="materiasDc" >
+
                 <columns>
                     <column id="nombre"/>
                     <column id="codigo"/>
@@ -30,7 +45,7 @@
 
             <button id="anadirMaterias" caption="Anadir Materias" align="MIDDLE_CENTER"/>
 
-            <textArea id="viewMaterias" dataContainer="materiasDc" datatype="string" property="nombre"  settingsEnabled="false"
+            <textArea id="viewMaterias"  datatype="string" property="nombre"  settingsEnabled="false"
                       align="MIDDLE_CENTER" width="100%"/>
         </vbox>
     </layout>

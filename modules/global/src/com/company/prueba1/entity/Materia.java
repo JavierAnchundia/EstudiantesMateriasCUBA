@@ -1,7 +1,13 @@
 package com.company.prueba1.entity;
 
+import com.company.prueba1.service.ObtenerEstudianteService;
+import com.haulmont.cuba.core.config.defaults.Default;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.global.AppBeans;
+import com.haulmont.cuba.core.global.UserSessionSource;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -9,6 +15,7 @@ import javax.validation.constraints.NotNull;
 @Entity(name = "prueba1_Materia")
 public class Materia extends StandardEntity {
     private static final long serialVersionUID = -4458295197154814404L;
+
 
     @NotNull
     @Column(name = "NOMBRE", nullable = false, unique = true)
@@ -22,6 +29,11 @@ public class Materia extends StandardEntity {
     @JoinColumn(name = "ESTUDIANTE_ID")
     protected Estudiante estudiante;
 
+
+    /*@PostConstruct
+    public void estudianteInicial() {
+        setEstudiante(obtenerEstudianteService.obtenerEstudiante());}
+    */
     public Estudiante getEstudiante() {
         return estudiante;
     }

@@ -21,6 +21,26 @@ public class MateriasEstudianteServiceBean implements MateriasEstudianteService 
         List<Materia> materias  = dataManager.load(Materia.class)
                 .query("select s from prueba1_Materia s where"+
                         " s.estudiante = :estudiante").parameter("estudiante",estudiante).list();
+
         return materias;
+
     }
+
+    @Override
+    public Boolean anadirMaterias(Materia materia, Estudiante estudiante) {
+        System.out.println(estudiante.getId()+ " " + estudiante.getNombre());
+        System.out.println(materia.getId()+ " " + materia.getNombre());
+        Estudiante estudiante2 = dataManager.getReference(Estudiante.class,estudiante.getId());
+        System.out.println(estudiante2.getId()+ " " + estudiante2.getNombre());
+        System.out.println(estudiante.getId()+ " " + estudiante.getNombre());
+        if(estudiante2 instanceof Estudiante){
+            if(materia.getEstudiante() == null){System.out.println("Esto es un null");}
+            else{System.out.println(materia.getEstudiante());}
+            materia.setEstudiante(estudiante);
+            dataManager.commit(materia);
+            return true;}
+        else{return false;}
+    }
+
+
 }
