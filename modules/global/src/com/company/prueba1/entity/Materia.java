@@ -1,13 +1,9 @@
 package com.company.prueba1.entity;
 
-import com.company.prueba1.service.ObtenerEstudianteService;
-import com.haulmont.cuba.core.config.defaults.Default;
 import com.haulmont.cuba.core.entity.StandardEntity;
-import com.haulmont.cuba.core.global.AppBeans;
-import com.haulmont.cuba.core.global.UserSessionSource;
+import com.haulmont.cuba.core.entity.annotation.Lookup;
+import com.haulmont.cuba.core.entity.annotation.LookupType;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -25,6 +21,8 @@ public class Materia extends StandardEntity {
     @Column(name = "CODIGO", nullable = false, unique = true)
     protected String codigo;
 
+    @NotNull
+    @Lookup(type = LookupType.DROPDOWN, actions = "lookup")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ESTUDIANTE_ID")
     protected Estudiante estudiante;

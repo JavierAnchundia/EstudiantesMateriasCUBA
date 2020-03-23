@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://browseCaption"
         focusComponent="materiasTable"
         messagesPack="com.company.prueba1.web.screens.materia">
     <data readOnly="true">
-        <collection id="materiasDc" class="com.company.prueba1.entity.Materia" view="_local">
+        <collection id="materiasDc"
+                    class="com.company.prueba1.entity.Materia"
+                    view="_local">
             <loader id="materiasDl">
                 <query>
                     <![CDATA[select e from prueba1_Materia e]]>

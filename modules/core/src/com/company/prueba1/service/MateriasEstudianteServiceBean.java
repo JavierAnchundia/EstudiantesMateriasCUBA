@@ -33,6 +33,7 @@ public class MateriasEstudianteServiceBean implements MateriasEstudianteService 
         Estudiante estudiante2 = dataManager.getReference(Estudiante.class,estudiante.getId());
         System.out.println(estudiante2.getId()+ " " + estudiante2.getNombre());
         System.out.println(estudiante.getId()+ " " + estudiante.getNombre());
+
         if(estudiante2 instanceof Estudiante){
             if(materia.getEstudiante() == null){System.out.println("Esto es un null");}
             else{System.out.println(materia.getEstudiante());}

@@ -7,10 +7,12 @@
       maxTotal="20"
       maxIdle="2"
       maxWaitMillis="5000"
-      driverClassName="org.hsqldb.jdbc.JDBCDriver"
-      url="jdbc:hsqldb:hsql://localhost:9010/prueba1-KJDYbgqHR"
-      username="sa"
-      password=""/>
+      driverClassName="org.postgresql.Driver"
+      url="jdbc:postgresql://172.17.0.3:5432/prueba1-KJDYbgqHR"
+      username="postgres"
+      password="max.123"
+      cubaDbHost="172.17.0.3:5432"
+      cubaDbName="prueba1-KJDYbgqHR"/>
 
     <!-- Switch off session serialization -->
     <Manager pathname=""/>

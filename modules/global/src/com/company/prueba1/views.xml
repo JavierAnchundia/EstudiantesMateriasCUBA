@@ -5,11 +5,10 @@
             <property name="nombre"/>
         </property>
     </view>
-    <view entity="prueba1_Materia" name="materia-edit-view">
-        <property name="nombre"/>
-        <property name="codigo"/>
+    <view entity="prueba1_Materia" name="materia-view" extends="_local">
         <property name="estudiante" view="_minimal">
             <property name="nombre"/>
+            <property name="apellido"/>
         </property>
     </view>
 </views>

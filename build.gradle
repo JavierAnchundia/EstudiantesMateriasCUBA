@@ -1,14 +1,13 @@
-
 buildscript {
     ext.cubaVersion = '7.2.1'
     repositories {
         maven {
             url 'https://dl.bintray.com/cuba-platform/main'
-            
+
         }
         jcenter()
 
-        
+
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
@@ -40,7 +39,7 @@ dependencies {
     appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
 }
 
-def hsql = 'org.hsqldb:hsqldb:2.4.1'
+def postgres = 'org.postgresql:postgresql:42.2.9'
 
 configure([globalModule, coreModule, webModule]) {
     apply(plugin: 'java')
@@ -86,8 +85,8 @@ configure(coreModule) {
     dependencies {
         compile(globalModule)
         compileOnly(servletApi)
-        jdbc(hsql)
-        testRuntime(hsql)
+        jdbc(postgres)
+        testRuntime(postgres)
     }
 
     task cleanConf(description: 'Cleans up conf directory') {
@@ -107,19 +106,19 @@ configure(coreModule) {
     }
 
     task createDb(dependsOn: assembleDbScripts, description: 'Creates local database', type: CubaDbCreation) {
-        dbms = 'hsql'
-        host = 'localhost:9010'
+        dbms = 'postgres'
+        host = '172.17.0.3:5432'
         dbName = 'prueba1-KJDYbgqHR'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbUser = 'postgres'
+        dbPassword = 'max.123'
     }
 
     task updateDb(dependsOn: assembleDbScripts, description: 'Updates local database', type: CubaDbUpdate) {
-        dbms = 'hsql'
-        host = 'localhost:9010'
+        dbms = 'postgres'
+        host = '172.17.0.3:5432'
         dbName = 'prueba1-KJDYbgqHR'
-        dbUser = 'sa'
-        dbPassword = ''
+        dbUser = 'postgres'
+        dbPassword = 'max.123'
     }
 }
 
